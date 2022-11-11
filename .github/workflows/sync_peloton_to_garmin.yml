@@ -23,6 +23,7 @@ jobs:
     - name: Create device info file
       env: 
         DEVICE_INFO: ${{ secrets.DEVICE_INFO }}
+        TZ: "America/Chicago"
       if: ${{ env.DEVICE_INFO }}
       run: |
         cat <<EOT > /app/deviceInfo.xml
@@ -31,6 +32,7 @@ jobs:
     - name: Create config file
       env:
         DEFAULT_WORKOUT_NUM: 5
+        TZ: "America/Chicago"
       run: |
         cat <<EOT > /app/configuration.local.json 
         {
@@ -82,3 +84,4 @@ jobs:
         P2G_PELOTON__PASSWORD: ${{ secrets.P2G_PELOTON__PASSWORD }}
         P2G_GARMIN__EMAIL: ${{ secrets.P2G_GARMIN__EMAIL }}
         P2G_GARMIN__PASSWORD: ${{ secrets.P2G_GARMIN__PASSWORD }}
+        TZ: "America/Chicago"
