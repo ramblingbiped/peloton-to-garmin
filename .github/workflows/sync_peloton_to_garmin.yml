@@ -8,7 +8,7 @@ on:
     inputs:
       workoutsToDownload:
         type: number
-        default: "5"
+        default: "8"
       saveLocalCopy:
         type: boolean
         default: false
@@ -39,8 +39,8 @@ jobs:
             "Json": false,
             "Tcx": false,
             "SaveLocalCopy": ${{ github.event.inputs.saveLocalCopy || false }},
-            "IncludeTimeInHRZones": false,
-            "IncludeTimeInPowerZones": false
+            "IncludeTimeInHRZones": true,
+            "IncludeTimeInPowerZones": true
           },
           "Peloton": {
             "NumWorkoutsToDownload": ${{ github.event.inputs.workoutsToDownload || env.DEFAULT_WORKOUT_NUM }},
