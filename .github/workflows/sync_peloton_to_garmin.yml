@@ -40,7 +40,11 @@ jobs:
             "Tcx": false,
             "SaveLocalCopy": ${{ github.event.inputs.saveLocalCopy || false }},
             "IncludeTimeInHRZones": true,
-            "IncludeTimeInPowerZones": true
+            "IncludeTimeInPowerZones": true,
+            "Running": {
+              "PreferredLapType": "Distance"
+            },
+            "WorkoutTitleTemplate": "{{PelotonWorkoutTitle}}{{#if PelotonInstructorName}} with {{PelotonInstructorName}}{{/if}}"
           },
           "Peloton": {
             "NumWorkoutsToDownload": ${{ github.event.inputs.workoutsToDownload || env.DEFAULT_WORKOUT_NUM }},
